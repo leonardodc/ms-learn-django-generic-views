@@ -2,8 +2,6 @@ from django.db import models
 # TODO: Import reverse
 from django.urls import reverse
 
-
-
 # Create your models here.
 class Shelter(models.Model):
     name = models.CharField(max_length=200)
@@ -23,4 +21,4 @@ class Dog(models.Model):
     
     # TODO: Add get_absolute_url
     def get_absolute_url(self):
-        return reverse('dog_detail', kwargs={"pk": self.pk})
+        return reverse('dog_detail', args=[str(self.id)])
